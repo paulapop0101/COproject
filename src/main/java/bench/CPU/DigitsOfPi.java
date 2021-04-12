@@ -1,8 +1,17 @@
 package bench.CPU;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import timer.Timer;
 import logging.TimeUnit;
 
-public class DigitsOfPi {
+import java.io.IOException;
+
+public class DigitsOfPi extends Application {
+    @Override
+    public void start(Stage stage) throws IOException {
+
+    }
     public static void main(String [] args){
         Timer timer=new Timer();
         timer.start();
