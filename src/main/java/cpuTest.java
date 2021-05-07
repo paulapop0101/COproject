@@ -7,6 +7,7 @@ import javafx.scene.control.ChoiceBox;
 
 public class cpuTest {
 
+
     @FXML
     private ChoiceBox value;
     @FXML
