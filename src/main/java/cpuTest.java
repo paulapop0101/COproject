@@ -10,6 +10,7 @@ import timer.Timer;
 
 public class cpuTest {
 
+
     @FXML
     private ChoiceBox value;
     @FXML
