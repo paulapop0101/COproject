@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import bench.CPU.DigitsOfPi;
+import bench.CPU.Spigot2;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,12 +20,14 @@ public class cpuTest implements Initializable {
     private long timetaken;
     private double newtime;
 
+    private long timetaken2;
+    private double newtime2;
+
     @FXML
     public TableView<Iteration> table;
     @FXML
     private ChoiceBox value;
-   // @FXML
-    //private TableColumn<Iteration,String> timeC;
+
     @FXML
     private TableColumn<Iteration,Integer> digitsC;
 
@@ -56,6 +59,13 @@ public class cpuTest implements Initializable {
         d.Digits(k);
         timetaken=t.stop();
         newtime= TimeUnit.toTimeUnit(timetaken,TimeUnit.Sec);
+
+        Spigot2 pi=new Spigot2(k);
+        t.start();
+        pi.calculatePi();
+        timetaken2=t.stop();
+        newtime2= TimeUnit.toTimeUnit(timetaken2,TimeUnit.Sec);
+
         addInTable();
 
     }
@@ -67,7 +77,7 @@ public class cpuTest implements Initializable {
         Iteration row= new Iteration();
         row.setDigits(k);
         row.setTime1(newtime);
-        row.setTime2(2.0);
+        row.setTime2(newtime2);
         table.getItems().add(row);
 
     }
