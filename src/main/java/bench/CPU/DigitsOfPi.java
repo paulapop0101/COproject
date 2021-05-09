@@ -14,43 +14,6 @@ public class DigitsOfPi{
     private int[] digits;
     private StringBuilder predigits = new StringBuilder();
 
-    // Max value such that digits.length <= INT_MAX.
-    //   ceil(((2**31-1) - 1) * 3 / 10)
-    private static final int MAX_DIGITS_REQUESTED = 644245094;
-
-
-    public static void printHelp() {
-        System.err.println("\n  PiSpigot [number of digits requested]\n");
-    }
-
-    // Get the number of digits requested from the command line arguments.
-    public boolean parseArgs(String[] args, int k) {
-        if (args.length != 1) {
-            printHelp();
-            return false;
-        }
-
-        try {
-            k = Integer.parseInt(args[0]);
-        } catch (NumberFormatException e) {
-            printHelp();
-            return false;
-        }
-
-        if (k <= 0) {
-            System.err.println("Digit count must be positive.");
-            return false;
-        }
-
-        if (k > MAX_DIGITS_REQUESTED) {
-            System.err.println("Maximum digit count is " + MAX_DIGITS_REQUESTED);
-            return false;
-        }
-
-        return true;
-    }
-
-
     // Allocate digits[]
     public boolean init(int k) {
         int array_size_needed = k * 10 / 3 + 1;
@@ -104,7 +67,7 @@ public class DigitsOfPi{
                 flushDigits();
                 addDigit(0);
             }
-            // System.out.flush();
+             System.out.flush();
         }
         flushDigits();
         System.out.println();
@@ -113,7 +76,7 @@ public class DigitsOfPi{
 
     // write the buffered digits
     void flushDigits() {
-        System.out.append(predigits);
+
         predigits.setLength(0);
     }
 
