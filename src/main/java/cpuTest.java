@@ -1,10 +1,14 @@
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import bench.CPU.DigitsOfPi;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
@@ -14,59 +18,54 @@ import javafx.stage.Stage;
 import timer.FileData;
 import timer.Timer;
 
-public class cpuTest {
+public class cpuTest implements Initializable {
 
-
+    private int k;
+    private long timetaken;
+    @FXML
+    public TableView<Iteration> table;
     @FXML
     private ChoiceBox value;
-
     @FXML
-    public void initialize() { value.getItems().addAll(16000, 32000,64000,128000,25600,512000,10000,2000000,4000000,8000000,16000000,32000000);
+    private TableColumn<Iteration,String> timeC;
+    @FXML
+    private TableColumn<Iteration,Integer> digitsC;
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        value.getItems().addAll(160, 32000,64000,128000,25600,512000,10000,2000000,4000000,8000000,16000000,32000000);
+        digitsC.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("digits"));
+        timeC.setCellValueFactory(new PropertyValueFactory<Iteration,String>("Time"));
+        table.setItems(getList());
     }
     @FXML
     private void backToPrimary() throws IOException {
         Main.setRoot("primary");
     }
     @FXML
-    public void test() {
+    public void test() throws IOException {
+       // digitsC.setCellFactory(new );
         DigitsOfPi d = new DigitsOfPi();
-        int k=Integer.parseInt(String.valueOf(value.getValue()));
+        k=Integer.parseInt(String.valueOf(value.getValue()));
         Timer t = new Timer();
         t.start();
         d.Digits(k);
-    }
+        timetaken=t.stop();
+        addInTable();
 
-    public void addtable(){
+    }
+    ObservableList<Iteration> getList(){
+        ObservableList<Iteration> it = FXCollections.observableArrayList();
+        //it.add(new Iteration("11","12"));
+        return it;
+    }
+    public void addInTable(){
         System.out.println("miki");
-        TableView<FileData> table = new TableView<>();
-        TableColumn fileNameCol = new TableColumn("File Name");
-        final ObservableList<FileData> data = FXCollections.observableArrayList(
-                new FileData(16000, 33),
-                new FileData(3200, 44)
-        );
-        Label label = new Label("File Data:");
-        fileNameCol.setCellValueFactory(new PropertyValueFactory<>("fileName"));
-        table.setItems(data);
-        TableColumn pathCol = new TableColumn("Path");
-        pathCol.setCellValueFactory(new PropertyValueFactory("path"));
-        TableColumn sizeCol = new TableColumn("Size");
-        sizeCol.setCellValueFactory(new PropertyValueFactory("size"));
-        TableColumn dateCol = new TableColumn("Date Modified");
-        dateCol.setCellValueFactory(new PropertyValueFactory("dateModified"));
-        dateCol.setPrefWidth(100);
-        //Adding data to the table
-        ObservableList<String> list = FXCollections.observableArrayList();
-        table.setItems(data);
-        table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        table.getColumns().addAll(fileNameCol, pathCol, sizeCol, dateCol);
-        //Setting the size of the table
-        table.setMaxSize(350, 200);
-        VBox vbox = new VBox();
-        vbox.setSpacing(5);
-        // vbox.setPadding(new Insets(10, 50, 50, 60));
-        vbox.getChildren().addAll(label, table);
-        //Setting the scene
-        // creating a scene for adding vBox
+        Iteration row= new Iteration();
+        row.setDigits(k);
+        row.setTime(timetaken);
+        table.getItems().add(row);
 
     }
 }
