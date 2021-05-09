@@ -2,10 +2,11 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cpuTest">
-    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToPrimary" text="Button" />
-    <ChoiceBox fx:id="value" layoutX="225.0" layoutY="40.0" onAction="#test" prefWidth="150.0" />
+    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToPrimary" text="Back" />
+    <ChoiceBox fx:id="value" layoutX="351.0" layoutY="65.0" onAction="#test" prefHeight="25.0" prefWidth="140.0" />
     <Label fx:id="text" layoutX="209.0" layoutY="85.0" prefHeight="18.0" prefWidth="196.0" />
    <TableView fx:id="table" layoutX="117.0" layoutY="105.0" prefHeight="256.0" prefWidth="374.0">
      <columns>
@@ -17,5 +18,10 @@
             </columns></TableColumn>
      </columns>
    </TableView>
+   <Label layoutX="117.0" layoutY="64.0" text="Choose the number of digits:">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
 
 </AnchorPane>
