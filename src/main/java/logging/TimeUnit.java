@@ -5,7 +5,7 @@ public enum TimeUnit {
     Nano, Micro, Milli, Sec;
 
 
-    public double toTimeUnit(long time, TimeUnit unit) {
+    public static double toTimeUnit(long time, TimeUnit unit) {
         switch (unit) {
             case Nano:
                 return time;
