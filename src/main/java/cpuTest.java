@@ -1,27 +1,44 @@
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import bench.CPU.DigitsOfPi;
 import bench.CPU.Spigot2;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import timer.Timer;
 import logging.TimeUnit;
 
 public class cpuTest implements Initializable {
 
-    private int k;
+    public int k;
+    @FXML
+    public NumberAxis y;
+    @FXML
+    public LineChart<Number,Number> LineChart;
+    @FXML
+    public NumberAxis nr;
+    public Button generatechart;
+    //  private LineChart<>
     private long timetaken;
-    private double newtime;
+    public double newtime;
+    public int i=0;
 
     private long timetaken2;
-    private double newtime2;
+    public double newtime2;
 
     @FXML
     public TableView<Iteration> table;
@@ -40,7 +57,7 @@ public class cpuTest implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        value.getItems().addAll(160, 32000,64000,128000,25600,512000,10000,2000000,4000000,8000000,16000000,32000000);
+        value.getItems().addAll(160, 320,640,1280,2560); //512000,10000,2000000,4000000,8000000,16000000,32000000
         digitsC.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("digits"));
         Spigot1.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("Time1"));
         Spigot2.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("Time2"));
@@ -54,6 +71,7 @@ public class cpuTest implements Initializable {
     public void test() {
         DigitsOfPi d = new DigitsOfPi();
         k=Integer.parseInt(String.valueOf(value.getValue()));
+      //  System.out.println(k);
         Timer t = new Timer();
         t.start();
         d.Digits(k);
@@ -69,16 +87,36 @@ public class cpuTest implements Initializable {
         addInTable();
 
     }
+    List<Integer> digits = new ArrayList<>();
+    List<Double> time1= new ArrayList<>();
+    List<Double> time2= new ArrayList<>();
     ObservableList<Iteration> getList(){
         ObservableList<Iteration> it = FXCollections.observableArrayList();
         return it;
     }
+             // i=1
+    //digits
+
+
     public void addInTable(){
+        i++;
         Iteration row= new Iteration();
         row.setDigits(k);
         row.setTime1(newtime);
         row.setTime2(newtime2);
         table.getItems().add(row);
+        digits.add(k);
+        time1.add((double) newtime);
+        time2.add((double) newtime2);
+
+        XYChart.Series<Number,Number> series= new XYChart.Series<>();
+        for (int j=0;j<i;j++)
+            series.getData().addAll(new XYChart.Data<>(digits.get(j),time1.get(j)));
+        XYChart.Series series1=new XYChart.Series();
+        for (int j=0;j<i;j++)
+            series1.getData().addAll(new XYChart.Data<>(digits.get(j),time2.get(j)));
+        LineChart.getData().addAll(series,series1);
 
     }
+
 }
