@@ -32,6 +32,8 @@ public class cpuTest implements Initializable {
     @FXML
     public NumberAxis nr;
     public Button generatechart;
+    public TableColumn<Iteration,Integer> score1;
+    public TableColumn<Iteration, Integer> score2;
     //  private LineChart<>
     private long timetaken;
     public double newtime;
@@ -57,10 +59,13 @@ public class cpuTest implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        value.getItems().addAll(160, 320,640,1280,2560); //512000,10000,2000000,4000000,8000000,16000000,32000000
+        value.getItems().addAll(1600, 3200,6400,12800,25600, 50000, 70000); //512000,10000,2000000,4000000,8000000,16000000,32000000
         digitsC.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("digits"));
         Spigot1.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("Time1"));
         Spigot2.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("Time2"));
+        score1.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("Score1"));
+        score2.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("Score2"));
+
         table.setItems(getList());
     }
     @FXML
@@ -105,6 +110,8 @@ public class cpuTest implements Initializable {
         row.setDigits(k);
         row.setTime1(newtime);
         row.setTime2(newtime2);
+        row.setScore1(k/newtime);
+        row.setScore2(k/newtime2);
         table.getItems().add(row);
         digits.add(k);
         time1.add((double) newtime);
