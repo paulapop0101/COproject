@@ -97,7 +97,8 @@ public class cpuTest implements Initializable {
              // i=1
     //digits
 
-
+    XYChart.Series<Number,Number> series= new XYChart.Series<>();
+    XYChart.Series<Number,Number> series1=new XYChart.Series<>();
     public void addInTable(){
         i++;
         Iteration row= new Iteration();
@@ -109,10 +110,11 @@ public class cpuTest implements Initializable {
         time1.add((double) newtime);
         time2.add((double) newtime2);
 
-        XYChart.Series<Number,Number> series= new XYChart.Series<>();
+        series.setName("Spigot 1");
+        series1.setName("Spigot 2");
         for (int j=0;j<i;j++)
             series.getData().addAll(new XYChart.Data<>(digits.get(j),time1.get(j)));
-        XYChart.Series series1=new XYChart.Series();
+
         for (int j=0;j<i;j++)
             series1.getData().addAll(new XYChart.Data<>(digits.get(j),time2.get(j)));
         LineChart.getData().addAll(series,series1);
