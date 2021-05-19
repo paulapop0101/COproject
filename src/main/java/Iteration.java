@@ -4,13 +4,17 @@ public class Iteration {
     private int digits;
     private double time1;
     private double time2;
+    private double score1;
+    private double score2;
 
     public Iteration(){
 
     }
-    public Iteration(int d, long t){
+    public Iteration(int d, long t, double score1, double score2){
         digits=d;
         time1=t;
+        this.score1 = score1;
+        this.score2 = score2;
     }
     public void setDigits(int digits) {
         this.digits = digits;
@@ -31,4 +35,19 @@ public class Iteration {
         this.time2 = time2;
     }
 
+    public double getScore1() {
+        return score1;
+    }
+
+    public void setScore1(double score1) {
+        this.score1 = score1;
+    }
+
+    public double getScore2() {
+        return score2;
+    }
+
+    public void setScore2(double score2) {
+        this.score2 = score2;
+    }
 }
