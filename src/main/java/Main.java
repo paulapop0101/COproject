@@ -15,7 +15,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 900, 900);
+        scene = new Scene(loadFXML("primary"),1000 , 1000);
+        stage.setMaximized(true);
         stage.setScene(scene);
         stage.setTitle("Benchmark");
         stage.show();

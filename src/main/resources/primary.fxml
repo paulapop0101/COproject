@@ -3,14 +3,24 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="252.0" prefWidth="415.0" spacing="20.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="primary">
+<AnchorPane prefHeight="1027.0" prefWidth="1967.0" stylesheets="@Image/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="primary">
     <children>
-        <Label text="Choose what you want to test" />
-        <Button fx:id="cpuButton" onAction="#switchToCPU" text="CPU" />
-        <Button fx:id="ramButton" onAction="#switchToRAM" text="RAM" />
+        <Label layoutX="503.0" layoutY="296.0" text="Choose what you want to test:">
+         <font>
+            <Font size="72.0" />
+         </font></Label>
+        <Button fx:id="ramButton" layoutX="1116.0" layoutY="482.0" onAction="#switchToRAM" text="RAM">
+         <font>
+            <Font size="48.0" />
+         </font></Button>
+        <Button fx:id="cpuButton" layoutX="606.0" layoutY="482.0" onAction="#switchToCPU" text="CPU">
+         <font>
+            <Font size="48.0" />
+         </font></Button>
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-</VBox>
+</AnchorPane>

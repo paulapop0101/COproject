@@ -1,5 +1,4 @@
 
-
 public class Iteration {
     private int digits;
     private double time1;

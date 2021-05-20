@@ -12,7 +12,7 @@
    <TableView fx:id="table" layoutX="85.0" layoutY="98.0" prefHeight="261.0" prefWidth="406.0">
      <columns>
        <TableColumn fx:id="digitsC" prefWidth="131.0" text="Digits" />
-       <TableColumn fx:id="timeC" prefWidth="242.0" text="Time">
+       <TableColumn fx:id="timeC" prefWidth="242.0" text="Time(s)">
             <columns>
                <TableColumn fx:id="Spigot1" prefWidth="122.0" text="Spigot1" />
                <TableColumn fx:id="Spigot2" prefWidth="120.0" text="Spigot2" />
