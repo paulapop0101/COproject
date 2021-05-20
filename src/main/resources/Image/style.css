@@ -1,0 +1,11 @@
+.root {
+    -fx-background-image:url('img.png');
+    -fx-background-size: cover;
+}
+.label{
+    -fx-text-fill: white;
+}
+.button{
+    -fx-background-color: rgba(0, 0, 0, 0.4);
+    -fx-text-fill: white;
+}
