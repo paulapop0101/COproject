@@ -59,7 +59,7 @@ public class cpuTest implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        value.getItems().addAll(512,1000,1600,3200,6400,12800,25600,32000,50000,64000,70000);
+        value.getItems().addAll(512,1000,1600,3200,6400,12800,25600,32000,64000,128000,256000,320000);
         digitsC.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("digits"));
         Spigot1.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("Time1"));
         Spigot2.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("Time2"));

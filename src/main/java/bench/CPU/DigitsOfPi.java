@@ -70,7 +70,7 @@ public class DigitsOfPi{
              System.out.flush();
         }
         flushDigits();
-       // System.out.println();
+        System.out.println();
     }
 
 

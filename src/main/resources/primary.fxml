@@ -11,11 +11,7 @@
          <font>
             <Font size="72.0" />
          </font></Label>
-        <Button fx:id="ramButton" layoutX="1116.0" layoutY="482.0" onAction="#switchToRAM" text="RAM">
-         <font>
-            <Font size="48.0" />
-         </font></Button>
-        <Button fx:id="cpuButton" layoutX="606.0" layoutY="482.0" onAction="#switchToCPU" text="CPU">
+        <Button fx:id="cpuButton" layoutX="877.0" layoutY="463.0" onAction="#switchToCPU" style="-fx-background-color: #000000;" text="CPU">
          <font>
             <Font size="48.0" />
          </font></Button>

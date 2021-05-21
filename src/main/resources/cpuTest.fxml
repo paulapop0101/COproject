@@ -15,12 +15,12 @@
    <TableView fx:id="table" layoutX="64.0" layoutY="237.0" prefHeight="593.0" prefWidth="590.0">
      <columns>
        <TableColumn fx:id="digitsC" prefWidth="131.0" text="Digits" />
-       <TableColumn fx:id="timeC" minWidth="0.0" prefWidth="224.0" text="Time">
+       <TableColumn fx:id="timeC" minWidth="0.0" prefWidth="224.0" text="Time(s)">
             <columns>
                <TableColumn fx:id="Spigot1" prefWidth="110.0" text="Spigot1" />
                <TableColumn fx:id="Spigot2" prefWidth="96.0" text="Spigot2" />
             </columns></TableColumn>
-         <TableColumn prefWidth="233.0" text="Score(digits/time)">
+         <TableColumn prefWidth="233.0" text="Score(1/s)">
             <columns>
                <TableColumn fx:id="score1" prefWidth="125.19998168945312" text="Spigot1" />
                <TableColumn fx:id="score2" prefWidth="124.4000244140625" text="Spigot2" />
