@@ -9,7 +9,7 @@ import java.io.IOException;
 
 import java.util.*;
 
-public class DigitsOfPi{
+public class Spigot1 {
 
     private int[] digits;
     private StringBuilder predigits = new StringBuilder();
@@ -37,10 +37,10 @@ public class DigitsOfPi{
         if (!init(k)) return;
 
         for (int iter = 0; iter < k; iter++) {
-
+            int carry = 0;
             // Work backwards through the array, multiplying each digit by 10,
             // carrying the excess and leaving the remainder.
-            int carry = 0;
+
             for (int i=digits.length-1; i > 0; i--) {
                 int numerator = i;
                 int denomenator = i * 2 + 1;

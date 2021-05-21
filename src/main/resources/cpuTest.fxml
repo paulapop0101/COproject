@@ -20,7 +20,7 @@
                <TableColumn fx:id="Spigot1" prefWidth="110.0" text="Spigot1" />
                <TableColumn fx:id="Spigot2" prefWidth="96.0" text="Spigot2" />
             </columns></TableColumn>
-         <TableColumn prefWidth="233.0" text="Score(1/s)">
+         <TableColumn prefWidth="233.0" text="Score(s*10000/digits)">
             <columns>
                <TableColumn fx:id="score1" prefWidth="125.19998168945312" text="Spigot1" />
                <TableColumn fx:id="score2" prefWidth="124.4000244140625" text="Spigot2" />

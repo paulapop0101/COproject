@@ -5,14 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import bench.CPU.DigitsOfPi;
+import bench.CPU.Spigot1;
 import bench.CPU.Spigot2;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.NumberAxis;
@@ -59,7 +57,7 @@ public class cpuTest implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        value.getItems().addAll(512,1000,1600,3200,6400,12800,25600,32000,64000,128000,256000,320000);
+        value.getItems().addAll(512,1000,1600,3200,6400,12800,25600,32000,64000,128000);
         digitsC.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("digits"));
         Spigot1.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("Time1"));
         Spigot2.setCellValueFactory(new PropertyValueFactory<Iteration,Integer>("Time2"));
@@ -74,7 +72,7 @@ public class cpuTest implements Initializable {
     }
     @FXML
     public void test() {
-        DigitsOfPi d = new DigitsOfPi();
+        bench.CPU.Spigot1 d = new Spigot1();
         k=Integer.parseInt(String.valueOf(value.getValue()));
       //  System.out.println(k);
         Timer t = new Timer();
@@ -110,8 +108,8 @@ public class cpuTest implements Initializable {
         row.setDigits(k);
         row.setTime1(newtime);
         row.setTime2(newtime2);
-        row.setScore1(k/newtime);
-        row.setScore2(k/newtime2);
+        row.setScore1(newtime/k*10000);
+        row.setScore2(newtime2/k*10000);
         table.getItems().add(row);
         digits.add(k);
         time1.add((double) newtime);
